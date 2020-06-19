@@ -1,0 +1,150 @@
+@media (max-width: 670px) {
+    /* create-point settings - fixing the form */
+
+    #page-create-point form {
+        padding: 24px;
+    }
+
+    #page-create-point form .field-group {
+        flex-direction: column;
+    }
+
+    #page-create-point form .field-group .field + .field {
+        margin-left: 0px;
+    }
+
+    #page-create-point form .items-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    /* Fixing footer's height on small devices */
+
+    footer {
+        height: 280px;
+    }
+
+    footer .footer {
+        width: 100%;
+    }
+
+    footer .pages {
+        margin-left: 24px;
+    }
+}
+
+
+@media (max-width: 900px) {
+    #page-home {
+        background-position-x: 70vw;
+    }
+
+    #page-home .content {
+        align-items: center;
+        text-align: center;
+    }
+
+    #page-home header a{
+        position: absolute;
+        bottom: 48px; /* vai olhar a pag inteira, contar 48px e colocar ele */
+        left: 50%;
+        transform: translateX(-50%); /*isso joga a caixa no eixo x */
+    }
+
+    #page-home main {
+        align-items: center;
+    }
+
+    /* /search */
+
+    #page-search-results .cards {
+        grid-template-columns: 1fr;
+    }
+
+
+    #page-search-results main .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #page-search-results .card img {
+        height: 250px;
+        max-width: 300px;
+        border-radius: 8px;
+    }
+
+    #page-search-results .card p {
+        max-width: 300px;
+        /* transform: translateX(10%); */
+        text-align: center;
+    }
+}
+
+
+@media (min-width: 1700px) {
+    #page-home {
+        background-position-x: 40vw;
+        background-position-y: 30vh;
+    }
+}
+
+@media (max-height:760px) {
+    /* Fixing home on small cellphones */
+    #page-home {
+        background-position-y: 200px;
+    }
+
+    #page-home main h1 {
+        font-size: 40px;
+    }
+
+    #page-home main p {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    #page-home main a {
+        height: 60px;
+    }
+
+    #page-home main a span {
+        height: 60px;
+        width: 60px;
+    }
+
+    #page-home header a {
+        width: 200px;
+        bottom: 1px;
+    }
+}
+
+@media (max-width: 400px) {
+    header.return-home {
+        flex-direction: column;
+    }
+
+    header.return-home a{
+        margin-top: 24px;
+    }
+
+    #page-create-point form{
+        margin-top: 48px;
+    }
+
+    .after {
+        height: 10rem;
+    }
+
+    body::after {
+        height: 17rem;
+    }
+
+    #page-search-results .search-box {
+        flex-direction: column;
+    }
+
+    #page-search-results .search-box h4 {
+        margin-bottom: 16px;
+    }
+}
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da pesquisa de pontos</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/search-results.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+
+
+</head>
+<body>
+
+    <div id="page-search-results">
+
+        {% include "partials/page-header.html" %}
+        <main>
+            {% if total > 0 %}
+
+                <div class="search-box">
+                    <h4>
+                        <strong>{{total}} pontos</strong> encontrados
+                    </h4>
+    
+                    <form action="/search">
+                        <div class="seach field">
+                            <input type="text" name="search" placeholder="...Cidade ou Estado">
+                            <button>
+                                <img src="icones/search.svg" alt="Buscar">
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="cards">
+
+                    {% for place in places %}
+                        <div class="card">
+                            <img src="{{place.image}}" alt="{{place.name}}">
+                            <h1>{{place.name}}</h1>
+                            <h3>
+                                {% filter replace(",", ", ") %}
+                                {{ place.items }}
+                                {% endfilter %}
+                            </h3>
+                            <p>
+                                {{place.address}} nº {{place.address2}}, {{place.city}}, {{place.state}}.
+                            </p>
+                            <p class="tel_cc">
+                                Telefone de Contato: {{place.phone}}
+                            </p>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            {% else %}
+                
+                <div class="search-box">
+                    <h4>
+                        <strong>Nenhum</strong> ponto encontrado
+                    </h4>
+    
+                    <form action="/search">
+                        <div class="seach field">
+                            <input type="text" name="search" placeholder="...Cidade ou Estado">
+                            <button>
+                                <img src="icones/search.svg" alt="Buscar">
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="no-point">
+                    <p>Tente buscar por outro local.</p>
+                </div>
+
+            {% endif %}
+
+        </main>
+
+    </div>
+    {% include "partials/page-footer.html" %}
+
+</body>
+</html>

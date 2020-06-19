@@ -1,0 +1,57 @@
+body {
+    background-color: white;
+}
+
+.after {
+    background-color: #f0f0f5;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 8rem;
+    z-index: -1;
+}
+
+#about-us {
+    width: 90%;
+    max-width: 1300px;
+    min-height: 600px;
+    margin: 0 auto 36px;
+}
+
+#about-us header {
+    margin: 48px 0 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#about-us header a {
+    color: var(--title-color);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+#about-us header a span {
+    margin: 0 8px 3px 0;
+    background: url("../icones/arrow-left.svg");
+    width: 20px;
+    height: 20px;
+    display: flex;
+}
+
+
+#about-us main h2 {
+    font-family: "Ubuntu", sans-serif;
+    color: var(--primary-color);
+    line-height: 36px;
+    font-size: 34px;
+    margin: 66px 0 20px;
+}
+
+#about-us main p {
+    margin: 50px 0 12px
+}
+
