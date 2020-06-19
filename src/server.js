@@ -138,5 +138,5 @@ server.get("/about-us", (req,res) => {
     return res.render("about-us.html");
 })
 
-//starts the local server
+//starts the local server at port 3000
 server.listen(3000);
