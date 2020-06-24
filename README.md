@@ -1,4 +1,4 @@
-# ecoleta_starter
+# Ecoleta
 Ecoleta's application, developed during Rocketseat's Next Level Week 11, with modifications of my own.
 
 Here i try to use every knowlodge i'm colleting through the start of my carrer in practice.
