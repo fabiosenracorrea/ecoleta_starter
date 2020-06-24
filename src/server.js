@@ -18,7 +18,8 @@ nunjucks.configure("src/views", {
     noCache: true, //to save us some bugs while developing
 })
 
-server.use('/', require('./routes'));
+server.use('/', require('./routes')); // to get the routes from routes.js
+server.use('/api', require('./api_routes')); 
 
 //starts the local server at port 3000
 server.listen(3000);
