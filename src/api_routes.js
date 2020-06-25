@@ -38,7 +38,6 @@ api_routes.get(`/points/:uf/:city`, (req, res) => {
     const state = req.params.uf
     let city = (req.params.city).toString()
     city = city.replace(/-/g, ' ')
-    console.log(city)
 
     const query = `
         SELECT image, name, phone, email, cep, address, address2, state, city, items
