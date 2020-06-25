@@ -3,16 +3,65 @@ const api_routes = express.Router();
 
 const db = require("./database/db.js");
 
-api_routes.get(`/points/`, (req, res) => {
+api_routes.get(`/points/:uf/`, (req, res) => {
 
-    db.all(`SELECT * FROM places`, function(err,rows) {
+    const state = req.params.uf
+
+    const query = `
+        SELECT image, name, phone, email, cep, address, address2, state, city, items
+        FROM places
+        WHERE state like '%${state}%'
+    `
+
+    db.all(query, function(err,rows) {
         if (err) {
-            // maybe return the page with a variable indicating that an error occurred?
-            return console.log(err);
+            let error_occ = {
+                error: "Error while quering for data, please check your request"
+            }
+            return res.json(error_occ)
         } else {
-            //sends the page with the variables we need to display
-            //whats in our data base
-            return res.json(rows)
+            if (rows[0] === undefined ) {
+                let error_occ = {
+                    error: "0 points registered for that UF"
+                }
+                return res.json(error_occ)
+            } else {
+                console.log(rows)
+                return res.json(rows)
+            }
+        }
+    })
+})
+
+api_routes.get(`/points/:uf/:city`, (req, res) => {
+
+    const state = req.params.uf
+    let city = (req.params.city).toString()
+    city = city.replace(/-/g, ' ')
+    console.log(city)
+
+    const query = `
+        SELECT image, name, phone, email, cep, address, address2, state, city, items
+        FROM places
+        WHERE state like '%${state}%' AND city LIKE '%${city}%'
+    `
+
+    db.all(query, function(err,rows) {
+        if (err) {
+            let error_occ = {
+                error: "Error while quering for data, please check your request"
+            }
+            return res.json(error_occ)
+        } else {
+            if (rows[0] === undefined ) {
+                let error_occ = {
+                    error: "0 points registered for that UF and City"
+                }
+                return res.json(error_occ)
+            } else {
+                console.log(rows)
+                return res.json(rows)
+            }
         }
     })
 })
