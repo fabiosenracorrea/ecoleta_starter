@@ -168,31 +168,6 @@ form button:hover {
     pointer-events: none;
 }
 
-#modal.hide {
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    background-color: #0E0A14ef;
-    transition: 400ms;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#modal .content {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    color: white;
-}
-
-#modal img {
-    margin-bottom: 12px;
-}
-
 /* making the number input lose its appearence */
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
@@ -283,4 +258,45 @@ the CEP or with zero items selected */
 
 @keyframes slide-out {
     100% {transform: translateX(-100%)}
+}
+
+/* Creating a tool tip for the phone's label */
+
+label #tool-tip {
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+}
+
+label img.question-mark {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+
+label #tool-tip .tool-tip-box {
+    background-color: var(--primary-color);
+    opacity: 0.92;
+    margin-left: 24px;
+    margin-bottom: 12px;
+    height: 30px;
+    width: 163px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    position: absolute;
+    align-self: flex-end;
+    transition: 400ms ease-in;
+}
+
+label #tool-tip .tool-tip-box p {
+    font-size: 12px;
+    color: white;
+    font-weight: 500;
+}
+
+label #tool-tip .hide {
+    display: none;
 }

@@ -212,6 +212,11 @@ function checkImg(event) {
     }, timeout)
 }
 
+function tool_tip_trigger() {
+    let tool_tip = document.querySelector("div.tool-tip-box")
+    tool_tip.classList.toggle("hide")
+}
+
 // function that makes sure the form is correctly filled (checks items clicked, CEP and Phone and IMG URL)
 function no_null_items(event) {
     const items = document.getElementById("selected_items").value
@@ -293,6 +298,11 @@ for (var i of itemsToCollect) {
 
 // here we will store the items the user selects
 let selectedItems = [];
+
+//here we get the on_mouse_over event to trigger the tool-tip
+let tool_tip = document.getElementsByClassName("question-mark")[0]
+tool_tip.setAttribute("onmouseover", "tool_tip_trigger()")
+tool_tip.setAttribute("onmouseout", "tool_tip_trigger()")
 
 // runs the function to check if everything is ok
 document.querySelector("form").onsubmit = event => no_null_items(event);
