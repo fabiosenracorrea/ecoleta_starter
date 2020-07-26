@@ -69,7 +69,7 @@ async function getCities(event) {
             city_list.push(nome);
             ids[nome] = id;
         })
-        city_list.sort()
+        city_list.sort((a,b) => a.localeCompare(b)) //deals with ASCII chars!
         const selEl = document.getElementById("city");
         loading(false);
         selEl.disabled = false;
@@ -284,7 +284,7 @@ document
     .getElementById("cep")
     .addEventListener("input", getStreetName);
 
-// everytime the user changes the img URL, this function that checks if its valid is executed
+// everytime the user changes the img URL, the function that checks if its valid is executed
 document
     .getElementById("img_url")
     .addEventListener("input", checkImg);
@@ -304,7 +304,7 @@ let tool_tip = document.getElementsByClassName("question-mark")[0]
 tool_tip.setAttribute("onmouseover", "tool_tip_trigger()")
 tool_tip.setAttribute("onmouseout", "tool_tip_trigger()")
 
-// runs the function to check if everything is ok
+// runs the function to check if everything is ok before submiting
 document.querySelector("form").onsubmit = event => no_null_items(event);
 
 //fills the state options with IBGE's API
